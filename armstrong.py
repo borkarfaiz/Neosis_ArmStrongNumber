@@ -1,8 +1,6 @@
 import functools
 import os
-import psutil
 import time 
-
 import tracemalloc
 
 
@@ -109,11 +107,12 @@ def get_armstrong_number(number):
 
 
 if __name__ == "__main__":
-    number = int(input("please enter a number to find armstrong number: "))
+    while True:
+        try:
+            number = int(input("please enter a number to find armstrong number: "))
+            break
+        except ValueError:
+            print("Invalid number try again")
     output = get_armstrong_number(number)
     print("********Output***********")
     print(output)
-    # start_time = time.time()
-    # print('execution time {}s'.format(time.time() - start_time))
-    # process = psutil.Process(os.getpid())
-    # print(process.memory_info().rss, "bytes")
